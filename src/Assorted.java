@@ -13,8 +13,15 @@ public class Assorted {
      * @return the sum of the elements in the list as if all elements were
      *         integer data types.
      */
+
     public static int findSum(List<?> list) {
-        return 0;
+        int total = 0;
+        for (int i = 0; i < list.size(); i++) {
+            String x = list.get(i).toString();
+            int y = Integer.parseInt(x);
+            total = total + y;
+        }
+        return total;
     }
 
     /**
@@ -25,8 +32,17 @@ public class Assorted {
      * @param list a list of integer and string values. E.g [1, 2, "a", 5]
      * @return a list containing integers only.
      */
-    public static List<Integer> filterStrings(List list) {
-        return null;
+    public static List<Integer> filterStrings(List list)
+    {
+        List<Integer> Integers = new ArrayList<>();
+        for (int i=0; i<list.size(); i++)
+        {
+            if(list.get(i).getClass().equals(Integer.class))
+            {
+                Integers.add(i);
+            }
+        }
+        return Integers;
     }
 
     /**
@@ -38,8 +54,17 @@ public class Assorted {
      * @return a list where each element is prepended by the correct line number
      *         e.g. ["1: a", "2: b", "3: c"]
      */
-    public static List<String> lineNumbering(List<String> list) {
-        return null;
+    public static List<String> lineNumbering(List<String> list)
+    {
+        List<String> strings = new ArrayList<>();
+        for(int i = 0; i<list.size(); i++)
+        {
+            if(list.get(i).getClass().equals(String.class))
+            {
+                strings.add((i+1) + ": " + list.get(i));
+            }
+        }
+        return strings;
     }
 
     /**
@@ -60,8 +85,14 @@ public class Assorted {
      * @param list a list of integer pairs.
      * @return the number of people who are still on the bus after the last stop.
      */
-    public static int busStop(List<Integer[]> list) {
-        return 0;
+    public static int busStop(List<Integer[]> list)
+    {
+        int number = 0;
+        for(Integer[] x: list)
+        {
+            number = number + (x[0] - x[1]);
+        }
+            return number;
     }
 
     /**
@@ -72,8 +103,14 @@ public class Assorted {
      * @return the decimal value of the binary representation of the list.
      *         Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
      */
-    public static int toBinary(List<Integer> list) {
-        return 0;
+    public static int toBinary(List<Integer> list)
+    {
+        int total = 0;
+        for(int i=0; i<list.size(); i++)
+        {
+            total += Math.pow(2, i) * (list.get(list.size() - 1 - i));
+        }
+        return total;
     }
 
     /**
@@ -92,7 +129,17 @@ public class Assorted {
      *              subtractList([1,2,2,2,3], [2]) returns [1,3]
      */
     public static List<Integer> subtractList(List<Integer> listA, List<Integer> listB) {
-        return null;
+        for(int i=0; i<listB.size(); i++)
+        {
+            for(int k=0; k<listB.size();k++)
+            {
+                if(listB.get(i) > listB.get(k))
+                {
+                    listB.remove(i);
+                }
+            }
+        }
+        return listA;
     }
 
     /**
@@ -106,7 +153,29 @@ public class Assorted {
      *         integers remain in their original position.
      */
     public static List<Integer> sortOdd(List<Integer> list) {
-        return null;
+        List<Integer> oddNumbers = new ArrayList<>();
+        for (Integer x : list) {
+            if (x % 2 > 0) {
+                oddNumbers.add(x);
+            }
+        }
+        for (int i = 0; i < oddNumbers.size() - 1; i++) {
+            for (int k = 0; k < oddNumbers.size() - 1; k++) {
+                if (oddNumbers.get(k) > oddNumbers.get(k + 1)) {
+                    int bubbleTemp = oddNumbers.get(k);
+                    oddNumbers.set(k, oddNumbers.get(k + 1));
+                    oddNumbers.set(k + 1, bubbleTemp);
+                }
+            }
+        }
+        int total = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) % 2 > 0) {
+                list.set(i, oddNumbers.get(total));
+                total = total + 1;
+            }
+        }
+        return list;
     }
 
     /**
@@ -130,7 +199,17 @@ public class Assorted {
      *         e.g. uniqueNumber(1,10) returns [1,2,3,4,5,6,7,8,9]
      *              uniqueNumber(1,100) returns [1,2,3,4,5,6,7,8,9,89]
      */
-    public static List<Integer> uniqueNumber(int lowerBound, int upperBound) {
+    public static List<Integer> uniqueNumber(int lowerBound, int upperBound)
+    {
+        List<Integer> list = new ArrayList<>();
+        String dummy;
+        for(int i = lowerBound; i<upperBound; i++)
+        {
+            dummy = String.valueOf(i);
+
+
+
+        }
         return null;
     }
 
